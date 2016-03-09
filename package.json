@@ -1,0 +1,40 @@
+{
+  "name": "Lucas",
+  "version": "1.0.0",
+  "description": "Blog voltado para UI/UX Designers e Desenvolvedores Front End",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucasmiqueias/lucasmiqueias.github.io.git"
+  },
+  "keywords": [
+    "Blog",
+    "UI",
+    "UX",
+    "Designer",
+    "Design",
+    "Developer",
+    "Front-End"
+  ],
+  "author": "Lucas Miquéias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucasmiqueias/lucasmiqueias.github.io/issues"
+  },
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.9.2",
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-stylus": "^2.3.1",
+    "gulp-uglify": "^1.5.3",
+    "jeet": "^6.1.2",
+    "kouto-swiss": "^0.11.14",
+    "rupture": "^0.6.1"
+  }
+}
