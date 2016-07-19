@@ -1,0 +1,41 @@
+<header class="header-site" role="banner">
+    <div class="content">
+        <h1>
+            <span class="site-title">{{ site.title }}</span>
+            <span class="site-description">{{ site.author.biography }}</span>
+        </h1>
+        <div class="icons-home">
+            <a aria-label="Enviar Email" href="mailto:{{ site.author.email }}">
+                <svg class="icon icon-email">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            </a>
+            <a aria-label="{{ site.twitter.desc }}" target="_blank" href="{{ site.twitter.url }}">
+                <svg class="icon icon-twitter">
+                    <use xlink:href="#icon-twitter"></use>
+                </svg>
+            </a>
+            <a aria-label="{{ site.google_plus.desc }}" target="_blank" href="{{ site.google_plus.url }}">
+                <svg class="icon icon-google-plus">
+                    <use xlink:href="#icon-google-plus"></use>
+                </svg>
+            </a>
+            <a aria-label="{{ site.github.desc }}" target="_blank" href="{{ site.github.url }}">
+                <svg class="icon icon-github-alt">
+                    <use xlink:href="#icon-github-alt"></use>
+                </svg>
+            </a>
+            <a aria-label="Use o RSS para receber todos os posts novos" target="_blank" href="{{ "/feed.xml" | prepend: site.baseurl }}">
+                <svg class="icon icon-rss">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+    <a role="button" class="down" data-scroll href="#scroll">
+        <svg class="icon icon-angle-down">
+            <use xlink:href="#icon-angle-down"></use>
+        </svg>
+    </a>
+    {% include menu-search.html %}
+</header>

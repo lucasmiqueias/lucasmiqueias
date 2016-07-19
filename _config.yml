@@ -1,23 +1,54 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+markdown: redcarpet
+highlighter: pygments
 
-# Site settings
-title: Lucas Miquéias
-email: contato@lucasmiqueias.com.br
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://lucasmiqueias.com.br" # the base hostname & protocol for your site
-twitter_username: olucasmiqueias
-github_username:  lucasmiqueias
+title: "Hudson Brendon Blog"
+description: "Full Stack Developer and Entrepreneur"
 
-# Build settings
-markdown: kramdown
+permalink: /:title/
+
+links:
+  - title: Home
+    url: /
+  - title: Tags
+    url: /tags
+  - title: Photos
+    url: /photos
+  - title: About me
+    url: /about
+
+url: "http://hudsonbrendon.com.br"
+domain: "hudsonbrendon.com.br"
+baseurl: ""
+
+author:
+    name: "Hudson Brendon"
+    image: "https://avatars2.githubusercontent.com/u/5201888?v=3&s=460"
+    biography: "A full stack developer and entrepreneur who likes to play with the guitar in his spare time"
+    email: contato@hudsonbrendon.com.br
+
+twitter:
+    url:  https://twitter.com/hudsonbrendon
+    desc: Follow me on twitter
+    username: hudsonbrendon
+
+facebook:
+    url:  https://fb.com/hudsonbrendon
+    desc: Connect with me facebook
+
+github:
+    url:  https://github.com/hudsonbrendon
+    desc: Fork me on github
+
+google_plus:
+    url:  https://plus.google.com/116189383737787140965
+    desc: Add me on google+
+
+feedburn:
+    username: hudsonbrendon
+
+disqus:
+    short_name: hudsonbrendonblog
+
+ga: UA-25536682-6
 
 exclude: ['package.json', 'src', 'node_modules']
