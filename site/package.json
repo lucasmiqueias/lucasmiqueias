@@ -1,0 +1,15 @@
+{
+  "name": "moreban",
+  "version": "1.0.0",
+  "description": "The site mobile for test in Mix Internet",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucasmiqueias/lucasmiqueias.github.io/morebem"
+  },
+  "author": "Lucas Miquéias",
+  "license": "ISC"
+}
