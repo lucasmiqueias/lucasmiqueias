@@ -16,6 +16,9 @@
   <a href='#'>Inicial</a>
   <a href='#'>More Bem</a>
   <a href='#'>Empreedimentos</a>
+  <a href='#'>Simulador Financeiro</a>
+  <a href='#'>Escala de Plantões</a>
+  <a href='#'>Seja Nosso Corretor</a>
   <a href='#'>Dúvidas</a>
   <a href='#'>Parceiros</a>
   <a href='#'>Contato</a>
@@ -43,16 +46,59 @@
         </div>
       </header>
       <nav class="contacts">
-        <div class="col-xs-6">
-          <div class="col-xs-8">AGENDE SUA VISITA</div>
-          <div class="col-xs-4">img</div>
-        </div>
-        <div class="col-xs-6">
-          <div class="col-xs-8">CONTATE-NOS</div>
-          <div class="col-xs-4">img</div>
-        </div>
+        <button class="col-xs-6">
+          <div class="col-xs-12">AGENDE SUA VISITA</div>
+        </button>
+        <button class="col-xs-6">
+          <div class="col-xs-12">CONTATO POR &nbsp; E-MAIL</div>
+        </button>
       </nav>
-    </main>
+      <!--container slide-->
+      <div class="container container-slide">
+			<div class="slider_wrapper">
+				<ul id="image_slider">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+				</ul>					
+				<span class="nvgt" id="prev"></span>
+				<span class="nvgt" id="next"></span>
+			</div>
+		</div>
+    <article class="col-xs-6 ">
+      <div class="compon">
+        <img src="" alt="">
+        <span>Valle de Rosas</span>
+      </div>
+    </article>
+    <article class="col-xs-6 ">
+      <div class="compon">
+        <img src="" alt="">
+        <span>Valle de Rosas</span>
+      </div>
+    </article>
+    <article class="col-xs-6 ">
+      <div class="compon">
+        <img src="" alt="">
+        <span>Valle de Rosas</span>
+      </div>
+    </article>
+    <article class="col-xs-6 ">
+      <div class="compon">
+        <img src="" alt="">
+        <span>Valle de Rosas</span>
+      </div>
+    </article>
+    <div class="clearfix"></div>
+
+    <footer class="container">
+      <span>Natal/RN (84) 3234-5522 / 5766</span>
+      <div class="clearfix"></div>
+      <span>Rua Jaguarari Nº2614, Lagoa Nova</span>
+      <div class="clearfix"></div>
+      <img src="../../../../assets/imgs/footer.jpg" alt="">
+    </footer>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
@@ -76,9 +122,92 @@ $('body').keyup(function(event) {
     $('.js-toggle-menu-button').trigger('click');
   }
  });
- $(".burger-menu").click(function () {
-	   			$(this).toggleClass("menu-on");
+ $(".js-toggle-menu-button").click(function () {
+	   			$(".burger-menu").toggleClass("menu-on");
 	});
+
+  //1. set ul width 
+//2. image when click prev/next button
+var ul;
+var li_items;
+var imageNumber;
+var imageWidth;
+var prev, next;
+var currentPostion = 0;
+var currentImage = 0;
+
+
+function init(){
+	ul = document.getElementById('image_slider');
+	li_items = ul.children;
+	imageNumber = li_items.length;
+	imageWidth = li_items[0].children[0].clientWidth;
+	ul.style.width = parseInt(imageWidth * imageNumber) + 'px';
+	prev = document.getElementById("prev");
+	next = document.getElementById("next");
+	//.onclike = slide(-1) will be fired when onload;
+	/*
+	prev.onclick = function(){slide(-1);};
+	next.onclick = function(){slide(1);};*/
+	prev.onclick = function(){ onClickPrev();};
+	next.onclick = function(){ onClickNext();};
+}
+
+function animate(opts){
+	var start = new Date;
+	var id = setInterval(function(){
+		var timePassed = new Date - start;
+		var progress = timePassed / opts.duration;
+		if (progress > 1){
+			progress = 1;
+		}
+		var delta = opts.delta(progress);
+		opts.step(delta);
+		if (progress == 1){
+			clearInterval(id);
+			opts.callback();
+		}
+	}, opts.delay || 17);
+	//return id;
+}
+
+function slideTo(imageToGo){
+	var direction;
+	var numOfImageToGo = Math.abs(imageToGo - currentImage);
+	// slide toward left
+
+	direction = currentImage > imageToGo ? 1 : -1;
+	currentPostion = -1 * currentImage * imageWidth;
+	var opts = {
+		duration:1000,
+		delta:function(p){return p;},
+		step:function(delta){
+			ul.style.left = parseInt(currentPostion + direction * delta * imageWidth * numOfImageToGo) + 'px';
+		},
+		callback:function(){currentImage = imageToGo;}	
+	};
+	animate(opts);
+}
+
+function onClickPrev(){
+	if (currentImage == 0){
+		slideTo(imageNumber - 1);
+	} 		
+	else{
+		slideTo(currentImage - 1);
+	}		
+}
+
+function onClickNext(){
+	if (currentImage == imageNumber - 1){
+		slideTo(0);
+	}		
+	else{
+		slideTo(currentImage + 1);
+	}		
+}
+
+window.onload = init;
     </script>
   </body>
 
