@@ -11,15 +11,17 @@
     <meta name="x-apple-disable-message-reformatting">
     <title></title>
     <!-- Web Font / @font-face : BEGIN -->
-    <style>
-    @font-face {
-        font-family: 'Dosis-Bold';
-        src: url('https://s3.amazonaws.com/getcare/Dosis-Bold.ttf');
-    }
-    @font-face {
-        font-family: 'Dosis-Regular';
-        src: url('https://s3.amazonaws.com/getcare/Dosis-Regular.ttf');
-    }
+    <style type="text/css">
+        @media screen {
+            @font-face {
+                font-family: 'Dosis-Bold';
+                src: url('https://s3.amazonaws.com/getcare/Dosis-Bold.ttf');
+            }
+            @font-face {
+                font-family: 'Dosis-Regular';
+                src: url('https://s3.amazonaws.com/getcare/Dosis-Regular.ttf');
+            }
+        }
     </style>
     <!-- Web Font / @font-face : END -->
 
@@ -30,11 +32,10 @@
         table {border-collapse: collapse;}
     </style>
     <![endif]-->
-    <style>
+    <style type="text/css">
     body {
         margin:0;
         padding:0;
-        background: #f3f3f3;
     }
 
     img {
@@ -76,11 +77,11 @@
         max-width: 600px;
     }
 
-    .container {
+    td[class="container"] {
         border: 0px;
     }
 
-    .container-header {
+    td[class="container-header"] {
         width: 100%;
         padding: 30px 0 20px 0;
         border-radius: 10px 10px 0 0;
@@ -88,23 +89,23 @@
         border: 0px;
     }
     
-    .container-header img {
+    td[class="container-header"] img {
         width: 100%;
         max-width: 200px;
         margin: 0 auto;
     }
 
-    .container-image {
+    td[class="container-image"] {
         background: #ffffff;
         padding-top: 30px;
     }
 
-    .container-image img {
+    td[class="container-image"] img {
         width: 120px;
         margin: 0 auto;
     }
 
-    .container-title {
+    td[class="container-title"] {
         font-family: 'Dosis-Bold', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
         padding: 0 40px 0 40px;
         background: #ffffff;
@@ -114,14 +115,15 @@
         line-height:2em;
     }
 
-    .container-content {
+    td[class="container-content"] {
         background: #ffffff;
     }
-    .content-clean {
+
+    td[class="content-clean"] {
         width: 10%;
     }
 
-    .content-info {
+    td[class="content-info"] {
         padding: 10px 0 10px 0;
         font-family: 'Dosis-Regular', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
         color:#a7a7a7;
@@ -130,13 +132,13 @@
         line-height: 1.5em;
     }
 
-    .container-footer {
+    td[class="container-footer"] {
         background: #ffffff;
         height: 80px;
         border-radius: 0 0 10px 10px;
     }
 
-    .copyright {
+    td[class="copyright"] {
         padding:40px 10px 20px 10px;
         width: 100%;
         font-size: 12px;
@@ -145,48 +147,51 @@
         color: #888888;
     }
 
-    .network {
+    td[class="network"] {
         color:#999;
         font-family: 'Open Sans',Helvetica,Arial,sans-serif;
         font-size: 13px;
         font-weight: normal;
         line-height: 170%;
-        padding: 8px 0 
-    }
-
-    .network {
+        padding: 8px 0;
         margin: 0 auto;
     }
 
-    .network a{
+    td[class="network"] a{
         display: inline-block;
         padding: 0 10px;
     }
 
     @media only screen and (max-width: 600px) {
-        .container-header {
+        .wrapper {
+            margin: 0px 0px 20px 0px !important;
+        }
+        td[class="outer"] {
+            width: 100% !important;
+        }
+        td[class="container-header"] {
             border-radius: 0px !important;
         }
 
-        .container-footer {
+        td[class="container-footer"] {
             border-radius: 0px !important;
         }
     }
 
     @media only screen and (max-width: 430px) {
-        .container-header img {            
+        td[class="container-header"] img {            
             max-width: 160px !important;
         }
 
-        .container-image img {
+        td[class="container-image"] img {
             max-width: 90px !important;
         }
 
-        .container-title {
+        td[class="container-title"] {
             font-size: 22px !important;
         }
 
-        .content-info {
+        td[class="content-info"] {
             font-size: 16px !important;
         }
     }
@@ -194,7 +199,7 @@
 
 </head>
 
-<body>
+<body bgcolor="#f3f3f3">
 
     <center class="wrapper">
 
@@ -204,23 +209,29 @@
             <tr>
             <td>
         <![endif]-->
-        <table class="outer" align="center" border="0" cellpadding="0" cellspacing="0">
+        <table class="outer" width="600" align="center" border="0" cellpadding="0" cellspacing="0">
             <tr>
                 <td class="container">
                     <table width="100%">
                         <tr>
                             <td class="container-header">
-                                <img src="http://i.imgur.com/ylHzZjk.png" aria-hidden="true" border="0">
+                                <center>
+                                    <img src="http://i.imgur.com/ylHzZjk.png" aria-hidden="true" border="0">
+                                </center>
                             </td>
                         </tr>
                         <tr>
                             <td class="container-image">
-                                <img src="http://i.imgur.com/mvQiOHn.jpg" alt="Activate Your Account">
+                                <center>
+                                    <img src="http://i.imgur.com/mvQiOHn.jpg" alt="Activate Your Account">
+                                </center>
                             </td>
                         <tr/>
                         <tr>
                             <td class="container-title">
-                                Sua solicitação foi aceita
+                                <center>
+                                    Sua solicitação foi aceita
+                                </center>
                             </td>
                         </tr>
                         <tr>
@@ -249,7 +260,10 @@
             </tr>
             <tr>
                 <td class="copyright">
-                    © 2017 GetCare - Getty/IO Inc. All rights reserved.<br>
+                    <center>
+                        © 2017 GetCare - Getty/IO Inc. All rights reserved.
+                        <br>
+                    </center>
                 </td>
             </tr>
             <tr>
