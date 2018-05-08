@@ -34,6 +34,7 @@
 			position: absolute;
 			top: 0;
 			left: 0;
+			display: none;
 			width: 640px;
 			height: 360px;
 			background-color: transparent;
@@ -87,7 +88,6 @@
 	}
 
 	#shoutbox li {
-		display: none !important;
 		margin-bottom: 0.5em;
 		opacity:  0.1;
 	}
@@ -211,7 +211,7 @@
 			<script>
 	$(document).ready(function () {
 		setTimeout(function() {
-  	$("#shoutbox").show().delay(246000).fadeOut();
+  	$(".container").show().delay(246000).fadeOut();
 		}, 47000);
 	})
 			</script>
