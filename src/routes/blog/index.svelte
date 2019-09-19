@@ -1,15 +1,21 @@
 <script context="module">
-  export function preload({ params, query }) {}
+  export function preload({ params, query }) {
+    return this.fetch(`blog.json`)
+      .then(r => r.json())
+      .then(datas => {
+        return { datas };
+      });
+  }
 </script>
 
 <script>
-  import Posts from "./utils.svelte";
+  export let datas;
 </script>
 
-<Posts let:posts>
-  {#each posts as post}
+<div>
+  {#each datas as data}
     <li>
-      <a href="blog/{post.slug}">{post.title}</a>
+      <a rel="prefetch" href="blog/{data.slug}">{data.title}</a>
     </li>
   {/each}
-</Posts>
+</div>
