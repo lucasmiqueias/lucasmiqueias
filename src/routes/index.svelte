@@ -13,6 +13,8 @@
       });
     }
   });
+
+  export let posts;
 </script>
 
 <svelte:head>

@@ -1,7 +1,5 @@
 <script context="module">
-  export async function preload({ params, query }) {
-    return { appName: params.app };
-  }
+  export function preload({ params, query }) {}
 </script>
 
 <script>
