@@ -1,13 +1,15 @@
 <script>
   import { onMount } from "svelte";
 
-  export let posts = [];
-
   onMount(async function() {
-    const response = await fetch(`blog.json`);
-    const json = await response.json();
-    posts = json;
+    await fetch(`blog.json`)
+      .then(r => r.json())
+      .then(posts => {
+        return { posts };
+      });
   });
+
+  export let posts = [];
 </script>
 
 <slot {posts} />
