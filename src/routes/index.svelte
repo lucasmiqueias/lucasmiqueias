@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import Posts from "./blog/utils.svelte";
+  import PostList from "../components/PostList";
 
   onMount(() => {
     if (window.netlifyIdentity) {
@@ -13,8 +13,6 @@
       });
     }
   });
-
-  export let posts;
 </script>
 
 <svelte:head>
@@ -25,10 +23,4 @@
 </svelte:head>
 
 <span>Lucas Miqueias</span>
-<Posts let:posts>
-  {#each posts as post}
-    <li>
-      <a href="blog/{post.slug}">{post.title}</a>
-    </li>
-  {/each}
-</Posts>
+<PostList />
