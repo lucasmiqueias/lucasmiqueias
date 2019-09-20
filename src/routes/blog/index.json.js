@@ -18,9 +18,11 @@ export async function get(req, res) {
 			const content = (await fs.readFile(post)).toString();
 			const attr = fm(content).attributes;
 			const currentDate = attr.date
-			const formatter = new Intl.DateTimeFormat('pt-BR', { month: 'long' });
+			const formatter = new Intl.DateTimeFormat('pt-BR', { month: 'long' })
 
-			let formatDate = currentDate.getDate() + " de " + formatter.format(currentDate.getMonth() + 1) + " de " + currentDate.getFullYear()
+			console.log(currentDate)
+
+			let formatDate = currentDate.getDate() + " de " + formatter.format(currentDate) + " de " + currentDate.getFullYear()
 
 			// Add the slug (based on the filename) to the metadata, so we can create links to this blog post
 			return { ...attr, slug: path.parse(post).name, date: formatDate };
