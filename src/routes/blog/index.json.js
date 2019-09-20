@@ -16,14 +16,14 @@ export async function get(req, res) {
 	const postsFrontMatter = await Promise.all(
 		posts.map(async post => {
 			const content = (await fs.readFile(post)).toString();
+			const attr = fm(content).attributes;
+			const currentDate = attr.date
 			const formatter = new Intl.DateTimeFormat('pt-BR', { month: 'long' });
 
-			let attr = fm(content).attributes;
-			let currentDate = attr.date
 			let formatDate = currentDate.getDate() + " de " + formatter.format(currentDate.getMonth() + 1) + " de " + currentDate.getFullYear()
 
 			// Add the slug (based on the filename) to the metadata, so we can create links to this blog post
-			return { ...fm(content).attributes, slug: path.parse(post).name, date: formatDate };
+			return { ...attr, slug: path.parse(post).name, date: formatDate };
 		}),
 	);
 
