@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "https://lucasmiqueias.netlify.com/*"
-  to = "https://www.lucasmiqueias.com/:splat"
-	status = 301
-	force = true
