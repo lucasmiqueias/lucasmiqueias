@@ -6,4 +6,4 @@ I Have more 8 years technical experience with Design and 5 years working in serv
 
 🐦 [Twitter](https://twitter.com/lucasmiqueias) <br>
 📷 [Instagram](https://instagram.com/lucasmiqueias) <br>
-📕 [Medium](HTTPS://medium.com/[lucasmiqueias](https://lucasmiqueias.medium.com/))
+📕 [Medium](https://lucasmiqueias.medium.com/)
