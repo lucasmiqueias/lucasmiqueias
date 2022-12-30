@@ -29,9 +29,9 @@ export default function Home() {
             Anteriormente Product Designer na <a target="_blank" href="https://klever.io/">Klever</a> atuando em projetos de interface visual para carteira digital e corretora de criptomoedas atigindo milhares de usuários em todo o mundo.
           </p>
           <ul className={styles.socialLinks}>
-            <Link href="https://www.linkedin.com/in/lucasmiqueias/"><a target="_blank" rel="noopener noreferrer" >Linkedin</a></Link>
-            <Link href="https://www.instagram.com/lucasmiqueias/"><a target="_blank" rel="noopener noreferrer">Instagram</a></Link>
-            <Link href="https://medium.com/@lucasmiqueias"><a target="_blank" rel="noopener noreferrer">Medium</a></Link>
+            <Link href="https://www.linkedin.com/in/lucasmiqueias/"><a target="_blank" rel="noreferrer" >Linkedin</a></Link>
+            <Link href="https://www.instagram.com/lucasmiqueias/"><a target="_blank" rel="noreferrer">Instagram</a></Link>
+            <Link href="https://medium.com/@lucasmiqueias"><a target="_blank" rel="noreferrer">Medium</a></Link>
           </ul>
         </section>
       </div>
