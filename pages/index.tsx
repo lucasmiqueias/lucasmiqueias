@@ -23,10 +23,10 @@ export default function Home() {
           Product Designer morando em Natal, Brazil. 
           </h2>
           <p className={styles.description}>
-            Atualmente trabao com Experiência do usuário na <Link target="_blank" rel="noopener noreferrer" href="https://www.take.net/">Take Blip</Link> atuando com descoberta de oportunidades e inteligencia artificial em projetos de chatbots (contato inteligente) para empresas.
+            Atualmente trabalho com Experiência do usuário na <Link target="_blank" rel="noopener noreferrer" href="https://www.take.net/">Take Blip</Link> atuando com descoberta de oportunidades e inteligencia artificial em projetos de chatbots (contato inteligente) para empresas.
           </p>
           <p className={styles.description}>
-            Anteriormente Product Designer na <Link target="_blank" rel="noopener noreferrer" href="https://klever.io/">Klever</Link> atuando em projetos de interface visual para carteira digital e corretora de criptomoedas atigindo milhares de usuários em todo o mundo.
+            Anteriormente Product Designer na <Link target="_blank" rel="noopener noreferrer" href="https://klever.io/">Klever</Link> atuando em projetos de interface visual para carteira digital e corretora de criptomoedas, atigindo milhares de usuários em todo o mundo.
           </p>
           <ul className={styles.socialLinks}>
             <li>
