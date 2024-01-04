@@ -1,11 +1,39 @@
-import Head from 'next/head'
-import Link from 'next/link';
-import { Work_Sans } from '@next/font/google'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import fs, { read } from "fs";
+import matter from "gray-matter";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "../styles/Home.module.css";
 
-const inter = Work_Sans({ subsets: ['latin'] })
+export async function getStaticProps() {
+  try {
+    const files = fs.readdirSync("public/posts");
 
-export default function Home() {
+    const posts = files.map((fileName) => {
+      const slug = fileName.replace(".md", "");
+      const readFile = fs.readFileSync(`public/posts/${fileName}`, "utf-8");
+
+      const { data: frontmatter } = matter(readFile);
+
+      return {
+        slug,
+        frontmatter,
+      };
+    });
+
+    return {
+      props: { posts },
+    };
+  } catch (error) {
+    console.error(error);
+
+    return {
+      props: {},
+    };
+  }
+}
+
+export default function Home({ posts }: any) {
   return (
     <>
       <Head>
@@ -14,33 +42,25 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <header>
+        <h1>Lucas Miqueias</h1>
+        <h2>Product Designer And Front End Enthusiastic</h2>
+      </header>
+      <aside></aside>
       <div className={styles.container}>
-        <section>
-          <h1 className={styles.title}>
-            Lucas Miqueias
-          </h1>
-          <h2 className={styles.subTitle}>
-          Product Designer morando em Natal, Brazil. 
-          </h2>
-          <p className={styles.description}>
-            Atualmente trabalho com Experiência do usuário na <Link target="_blank" rel="noopener noreferrer" href="https://www.take.net/">Take Blip</Link> atuando com descoberta de oportunidades e inteligencia artificial em projetos de chatbots (contato inteligente) para empresas.
-          </p>
-          <p className={styles.description}>
-            Anteriormente Product Designer na <Link target="_blank" rel="noopener noreferrer" href="https://klever.io/">Klever</Link> atuando em projetos de interface visual para carteira digital e corretora de criptomoedas, atigindo milhares de usuários em todo o mundo.
-          </p>
-          <ul className={styles.socialLinks}>
-            <li>
-            <Link target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/lucasmiqueias/">Linkedin</Link>
-            </li>
-            <li>
-            <Link target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/lucasmiqueias/">Instagram</Link>
-            </li>
-            <li>
-            <Link target="_blank" rel="noopener noreferrer" href="https://medium.com/@lucasmiqueias">Medium</Link>
-            </li>
-          </ul>
-        </section>
+        <div className="grid grid-cols-1 md:grid-cols-3 lg-grid-cols-4 md:p-0 mt-8">
+          {posts.map(({ slug, frontmatter }: any) => (
+            <div
+              key={slug}
+              className="border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col"
+            >
+              <Link href={`/post/${slug}`}>
+                <h1 className="p-4 text-gray-50">{frontmatter.title}</h1>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </>
-  )
+  );
 }
