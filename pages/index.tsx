@@ -1,25 +1,32 @@
 import Head from "next/head";
-import fs, { read } from "fs";
-import matter from "gray-matter";
-import Image from "next/image";
+import fs from "fs";
+import React, { useRef } from "react";
+import matter, { GrayMatterFile } from "gray-matter";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
+import { parseISO, isAfter } from "date-fns";
 
 export async function getStaticProps() {
   try {
-    const files = fs.readdirSync("public/posts");
+    const files = fs.readdirSync("public/jobs");
 
     const posts = files.map((fileName) => {
       const slug = fileName.replace(".md", "");
-      const readFile = fs.readFileSync(`public/posts/${fileName}`, "utf-8");
+      const readFile = fs.readFileSync(`public/jobs/${fileName}`, "utf-8");
 
-      const { data: frontmatter } = matter(readFile);
+      const { data: frontmatter } = matter(readFile) as GrayMatterFile<string>;
 
       return {
         slug,
         frontmatter,
       };
     });
+
+    // .filter(({ frontmatter }) => {
+    //   return (
+    //     !frontmatter.endDate ||
+    //     isAfter(new Date(), parseISO(frontmatter.endDate))
+    //   );
+    // });
 
     return {
       props: { posts },
@@ -33,6 +40,18 @@ export async function getStaticProps() {
   }
 }
 
+const colors = [
+  "#9162C0",
+  "#C08962",
+  "#629EC0",
+  "#C0627E",
+  "#64C062",
+  "#6A62C0",
+  "#62AFC0",
+  "#C06262",
+  "#6288C0",
+];
+
 export default function Home({ posts }: any) {
   return (
     <>
@@ -42,24 +61,71 @@ export default function Home({ posts }: any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
-        <h1>Lucas Miqueias</h1>
-        <h2>Product Designer And Front End Enthusiastic</h2>
-      </header>
-      <aside></aside>
-      <div className={styles.container}>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg-grid-cols-4 md:p-0 mt-8">
-          {posts.map(({ slug, frontmatter }: any) => (
-            <div
-              key={slug}
-              className="border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col"
-            >
-              <Link href={`/post/${slug}`}>
-                <h1 className="p-4 text-gray-50">{frontmatter.title}</h1>
-              </Link>
-            </div>
-          ))}
+      <div className="container min-h-[100vh] content-center mx-auto px-20 2xl:max-w-[980px] grid grid-cols-6 gap-5">
+        <div className="col-span-6">
+          <header className="border border-dashed rounded-[4px] border-white border-opacity-15">
+            <h1 className="text-[3.25rem] font-bold uppercase px-[.9375rem] py-2.5 leading-[3.875rem]">
+              Lucas Miqueias
+            </h1>
+            <h2 className="px-[.9375rem] uppercase py-2.5 border-t border-dashed border-white border-opacity-15">
+              Product Designer And Front End Enthusiastic
+            </h2>
+          </header>
         </div>
+        <main className="col-span-6 md:col-span-4 py-[.625rem] px-[0.95rem] border rounded-[4px] border-white border-opacity-15 bg-[#1E1E1E]">
+          {posts.map(({ slug, frontmatter }: any, index: number) => (
+            <section
+              key={slug}
+              className="overflow-hidden flex flex-col py-[.9375rem] [&:not(:last-child)]:border-b border-white border-dashed border-opacity-15"
+            >
+              <Link href={`#`} className="grid gap-y-1">
+                <h2 className="text-md">{frontmatter.title}</h2>
+                {index === 0 ? (
+                  <p className="font-normal text-[#888888] text-sm">
+                    {frontmatter.description}
+                  </p>
+                ) : (
+                  <p className="font-normal text-[#888888]/[.25] text-sm">
+                    De: {frontmatter.startDate} até: {frontmatter.endDate}
+                  </p>
+                )}
+              </Link>
+            </section>
+          ))}
+        </main>
+        <aside className="col-span-2 hidden md:block">
+          <section className="py-[.625rem] px-[.625rem] border rounded-[4px] border-white border-opacity-15 bg-[#1E1E1E]">
+            <ul className="flex flex-col gap-2 items-start text-md">
+              <li className="text-[#9162C0] bg-[#9162C0]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
+                <a href="#">User interface</a>
+              </li>
+              <li className="text-[#C08962] bg-[#C08962]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
+                <a href="#">User experience</a>
+              </li>
+              <li className="text-[#629EC0] bg-[#629EC0]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
+                <a href="#">Information Architecture</a>
+              </li>
+              <li className="text-[#C0627E] bg-[#C0627E]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
+                <a href="#">Graphic Design</a>
+              </li>
+              <li className="text-[#64C062] bg-[#64C062]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
+                <a href="#">Strategy</a>
+              </li>
+              <li className="text-[#6A62C0] bg-[#6A62C0]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
+                <a href="#">Product Management</a>
+              </li>
+              <li className="text-[#62AFC0] bg-[#62AFC0]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
+                <a href="#">Front End Developer</a>
+              </li>
+              <li className="text-[#C06262] bg-[#C06262]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
+                <a href="#">Agile Methodologies</a>
+              </li>
+              <li className="text-[#6288C0] bg-[#6288C0]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
+                <a href="#">Usability testing</a>
+              </li>
+            </ul>
+          </section>
+        </aside>
       </div>
     </>
   );
