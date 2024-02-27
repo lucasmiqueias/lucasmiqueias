@@ -61,13 +61,13 @@ export default function Home({ posts }: any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="container min-h-[100vh] content-center mx-auto px-20 2xl:max-w-[980px] grid grid-cols-6 gap-5">
+      <div className="container min-h-[100vh] content-center mx-auto max-w-[820px] grid grid-cols-6 gap-5 px-4 md:px-0">
         <div className="col-span-6">
           <header className="border border-dashed rounded-[4px] border-white border-opacity-15">
-            <h1 className="text-[3.25rem] font-bold uppercase px-[.9375rem] py-2.5 leading-[3.875rem]">
+            <h1 className="text-3xl leading-normal md:text-[3.25rem] font-bold uppercase px-[.9375rem] py-2.5 md:leading-[3.875rem] ">
               Lucas Miqueias
             </h1>
-            <h2 className="px-[.9375rem] uppercase py-2.5 border-t border-dashed border-white border-opacity-15">
+            <h2 className="text-base px-[.9375rem] uppercase py-2.5 border-t border-dashed border-white border-opacity-15">
               Product Designer And Front End Enthusiastic
             </h2>
           </header>
