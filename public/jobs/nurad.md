@@ -4,8 +4,8 @@ description: Software de Assistência médica, a Nurad fornecia serviços para H
 metaTitle: Product Designer at Nurad
 metaDesc: Product Designer at Nurad
 socialImage: assets/images/webrtc.jpg
-startDate: 20/20/20
-endDate: 20/20/21
+startDate: 01/05/19
+endDate: 01/08/20
 ---
 
 <h1>Hello world!</h1>

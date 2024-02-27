@@ -4,8 +4,8 @@ description: Plataforma voltada para finanças descentralizadas. Na klever atuei
 metaTitle: Product Designer at Klever
 metaDesc: Product Designer at Klever
 socialImage: assets/images/webrtc.jpg
-startDate: 20/20/20
-endDate: 20/20/21
+startDate: 01/10/20
+endDate: 01/05/21
 ---
 
 <h1>Hello world!</h1>
