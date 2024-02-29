@@ -82,7 +82,7 @@ export default function Home({ posts }: any) {
                 key={slug}
                 className="overflow-hidden flex flex-col py-[.9375rem] [&:not(:last-child)]:border-b border-white border-dashed border-opacity-15"
               >
-                <Link href={`#`}>
+                <Link target="_blank" href={`https://www.blip.ai/`}>
                   <h2 className="text-md">{frontmatter.title}</h2>
                   {index === 0 ? (
                     <p className="font-normal text-[#888888] text-md">
