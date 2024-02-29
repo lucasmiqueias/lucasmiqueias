@@ -9,24 +9,27 @@ export async function getStaticProps() {
   try {
     const files = fs.readdirSync("public/jobs");
 
-    const posts = files.map((fileName) => {
-      const slug = fileName.replace(".md", "");
-      const readFile = fs.readFileSync(`public/jobs/${fileName}`, "utf-8");
+    const posts = files
+      .map((fileName) => {
+        const slug = fileName.replace(".md", "");
+        const readFile = fs.readFileSync(`public/jobs/${fileName}`, "utf-8");
 
-      const { data: frontmatter } = matter(readFile) as GrayMatterFile<string>;
+        const { data: frontmatter } = matter(
+          readFile
+        ) as GrayMatterFile<string>;
 
-      return {
-        slug,
-        frontmatter,
-      };
-    });
+        return {
+          slug,
+          frontmatter,
+        };
+      })
 
-    // .filter(({ frontmatter }) => {
-    //   return (
-    //     !frontmatter.endDate ||
-    //     isAfter(new Date(), parseISO(frontmatter.endDate))
-    //   );
-    // });
+      .filter(({ frontmatter }: any) => {
+        return (
+          !frontmatter.endDate ||
+          isAfter(new Date(), parseISO(frontmatter.endDate))
+        );
+      });
 
     return {
       props: { posts },
@@ -68,64 +71,51 @@ export default function Home({ posts }: any) {
               Lucas Miqueias
             </h1>
             <h2 className="text-base px-[.9375rem] uppercase py-2.5 border-t border-dashed border-white border-opacity-15">
-              Product Designer And Front End Enthusiastic
+              Multi-disciplinary Designer in Natal, Brazil
             </h2>
           </header>
         </div>
-        <main className="col-span-6 md:col-span-4 py-[.625rem] px-[0.95rem] border rounded-[4px] border-white border-opacity-15 bg-[#1E1E1E]">
-          {posts.map(({ slug, frontmatter }: any, index: number) => (
-            <section
-              key={slug}
-              className="overflow-hidden flex flex-col py-[.9375rem] [&:not(:last-child)]:border-b border-white border-dashed border-opacity-15"
-            >
-              <Link href={`#`} className="grid gap-y-1">
-                <h2 className="text-md">{frontmatter.title}</h2>
-                {index === 0 ? (
-                  <p className="font-normal text-[#888888] text-sm">
-                    {frontmatter.description}
-                  </p>
-                ) : (
-                  <p className="font-normal text-[#888888]/[.25] text-sm">
-                    De: {frontmatter.startDate} até: {frontmatter.endDate}
-                  </p>
-                )}
-              </Link>
+        <div className="col-span-6 grid grid-cols-6 gap-5">
+          <main className="col-span-6 md:col-span-4 py-[.625rem] px-[0.95rem] border rounded-[4px] border-white border-opacity-15 bg-[#1E1E1E]">
+            {posts.map(({ slug, frontmatter }: any, index: number) => (
+              <section
+                key={slug}
+                className="overflow-hidden flex flex-col py-[.9375rem] [&:not(:last-child)]:border-b border-white border-dashed border-opacity-15"
+              >
+                <Link href={`#`}>
+                  <h2 className="text-md">{frontmatter.title}</h2>
+                  {index === 0 ? (
+                    <p className="font-normal text-[#888888] text-md">
+                      {frontmatter.description}
+                    </p>
+                  ) : (
+                    <p className="font-normal text-[#888888]/[.25] text-sm">
+                      De: {frontmatter.startDate} até: {frontmatter.endDate}
+                    </p>
+                  )}
+                </Link>
+              </section>
+            ))}
+          </main>
+          <aside className="col-span-2 hidden md:block">
+            <section className="py-[.625rem] px-[.625rem] border rounded-[4px] border-white border-opacity-15 bg-[#1E1E1E] h-full">
+              <ul className="flex flex-col items-start text-md text-1 gap-2.5">
+                <li className="text-[#9162C0] bg-[#9162C0]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
+                  <a href="#">Product Design</a>
+                </li>
+                <li className="text-[#C08962] bg-[#C08962]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
+                  <a href="#">Strategy</a>
+                </li>
+                <li className="text-[#629EC0] bg-[#629EC0]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
+                  <a href="#">Marketing Digital</a>
+                </li>
+                <li className="text-[#64C062] bg-[#64C062]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
+                  <a href="#">Front-End Development</a>
+                </li>
+              </ul>
             </section>
-          ))}
-        </main>
-        <aside className="col-span-2 hidden md:block">
-          <section className="py-[.625rem] px-[.625rem] border rounded-[4px] border-white border-opacity-15 bg-[#1E1E1E]">
-            <ul className="flex flex-col gap-2 items-start text-md">
-              <li className="text-[#9162C0] bg-[#9162C0]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
-                <a href="#">User interface</a>
-              </li>
-              <li className="text-[#C08962] bg-[#C08962]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
-                <a href="#">User experience</a>
-              </li>
-              <li className="text-[#629EC0] bg-[#629EC0]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
-                <a href="#">Information Architecture</a>
-              </li>
-              <li className="text-[#C0627E] bg-[#C0627E]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
-                <a href="#">Graphic Design</a>
-              </li>
-              <li className="text-[#64C062] bg-[#64C062]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
-                <a href="#">Strategy</a>
-              </li>
-              <li className="text-[#6A62C0] bg-[#6A62C0]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
-                <a href="#">Product Management</a>
-              </li>
-              <li className="text-[#62AFC0] bg-[#62AFC0]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
-                <a href="#">Front End Developer</a>
-              </li>
-              <li className="text-[#C06262] bg-[#C06262]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
-                <a href="#">Agile Methodologies</a>
-              </li>
-              <li className="text-[#6288C0] bg-[#6288C0]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
-                <a href="#">Usability testing</a>
-              </li>
-            </ul>
-          </section>
-        </aside>
+          </aside>
+        </div>
       </div>
     </>
   );
