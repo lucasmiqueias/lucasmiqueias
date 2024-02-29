@@ -1,6 +1,6 @@
 ---
 title: UX Designer at Blip
-description: Currently, I specialize in designing conversational experiences utilizing artificial intelligence and Blip for companies across various sectors, spanning communication channels such as WhatsApp, Instagram, Facebook Messenger, iMessage, RCS, and more.
+description: Currently, I am specialize in designing conversational experiences utilizing AI and Blip for companies across multiple sectors, spanning communication channels such as WhatsApp, Instagram, Facebook Messenger, iMessage, RCS, and more.
 metaTitle: UX Designer at Blip
 metaDesc: UX Designer at Blip
 socialImage: assets/images/webrtc.jpg
