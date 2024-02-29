@@ -101,16 +101,16 @@ export default function Home({ posts }: any) {
             <section className="py-[.625rem] px-[.625rem] border rounded-[4px] border-white border-opacity-15 bg-[#1E1E1E] h-full">
               <ul className="flex flex-col items-start text-md text-1 gap-2.5">
                 <li className="text-[#9162C0] bg-[#9162C0]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
-                  <a href="#">Product Design</a>
+                  Product Design
                 </li>
                 <li className="text-[#C08962] bg-[#C08962]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
-                  <a href="#">Strategy</a>
+                  Strategy
                 </li>
                 <li className="text-[#629EC0] bg-[#629EC0]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
-                  <a href="#">Marketing Digital</a>
+                  Marketing Digital
                 </li>
                 <li className="text-[#64C062] bg-[#64C062]/[.15] px-3 py-[0.2rem] rounded-full leading-relaxed">
-                  <a href="#">Front-End Development</a>
+                  Front-End Development
                 </li>
               </ul>
             </section>
